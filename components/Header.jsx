@@ -9,6 +9,7 @@ const Header = () => {
             <div className="text-center p-4">
                <Image src={"/rickandmorty.png"} alt="rickandmorty" width={325} height={325} />
                <h1 className='text-white uppercase font-black text-[65px] font-nunito'>Rick and Morty</h1>
+               <h6 className='font-nunito text-white'>Created By ErickCs</h6>
             </div>
          </div>
       </header>
