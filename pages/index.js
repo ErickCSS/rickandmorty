@@ -1,36 +1,12 @@
-import {useState, useEffect} from 'react'
 import Buttons from '../components/Buttons';
 import Card from '../components/Card';
 import Header from "../components/Header";
 import Head from 'next/head'
+import useApi from '../components/hooks/useApi';
 
 export default function Home() {
 
-  const [characters, setCharacters] = useState([])
-  const [info, setInfo] = useState({})
-  const url = "https://rickandmortyapi.com/api/character"
-  const FetchUrl = (url) => {
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setCharacters(data.results)
-        setInfo(data.info)
-      })
-      .catch(error => console.log(error))
-  }
-
-  // Buttons Prev and Next
-  const Previous = () => {
-    FetchUrl(info.prev)
-  }
-  const Next = () => {
-    FetchUrl(info.next)
-  }
-  // ===============
-
-  useEffect(() => {
-    FetchUrl(url)
-  }, [])
+  const [characters, info, Previous, Next, loading] = useApi()
 
   return (
     <>
@@ -41,6 +17,9 @@ export default function Home() {
       </Head>
       <Header />
       <section className="py-20">
+        {
+          loading ? <div className='text-center'><span className='font-nunito text-[3em] text-teal-600 font-black uppercase'>Loading Characters...</span> </div>: null
+        }
         <Card characters={characters} />
         <Buttons prev={info.prev} next={info.next} Previous={Previous} Next={Next}/>
       </section>

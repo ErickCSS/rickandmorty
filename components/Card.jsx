@@ -25,7 +25,7 @@ const Card = ({characters}) => {
             }
          </div>
       </div>
-    </>
+   </>
   )
 }
 
