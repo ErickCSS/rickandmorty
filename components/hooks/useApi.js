@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {getAllCharacters} from '../../services/getAllCharacters'
+import User from '../../services/getAllCharacters'
 
 const useApi = () => {
    const [characters, setCharacters] = useState([])
@@ -8,7 +8,7 @@ const useApi = () => {
    const [loading, setLoading] = useState(false)
    useEffect(() => {
       setLoading(true)
-      getAllCharacters(link)
+      User.getAllUser(link)
          .then(data => {
             setCharacters(data.results)
             setInfo(data.info)
