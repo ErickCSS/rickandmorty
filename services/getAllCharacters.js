@@ -9,8 +9,8 @@ getAllUser(link){
   });
 }
 
-getUserById(id){
-  return axios.get().then((response) => {
+getUserById(urlID){
+  return axios.get(urlID).then((response) => {
     const { data } = response;
     return data;
   });

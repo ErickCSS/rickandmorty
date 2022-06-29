@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import User from '../../services/getAllCharacters'
+import User from '../../services/getAllCharacters';
 
 const useApi = () => {
    const [characters, setCharacters] = useState([])
