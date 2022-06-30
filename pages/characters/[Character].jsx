@@ -2,22 +2,28 @@ import React, {useEffect, useState} from "react";
 import { useRouter } from "next/router";
 import User  from "../../services/getAllCharacters.js";
 
+// export async function getServerSideProps({params}){
+//   const res = await fetch(`https://rickandmortyapi.com/api/character/${params.character}`)
+
+//     return{
+//       props: {
+//         personaje: await res.json()
+//       }
+//     }
+// }
+
 const Character = () => {
-  const [individual, setIndividual] = useState([])
-  const router = useRouter()
+  const [personaje, setPersonaje] = useState([])
+  const {
+    query: {character},
+  } = useRouter()
 
-  console.log(router);
+  const urlID = `https://rickandmortyapi.com/api/character/${character}`
 
-  const { index } = router.query;
-
-  console.log(index);
-
-  const urlID = `https://rickandmortyapi.com/api/character/${index}`
-  
   useEffect(() => {
     User.getUserById(urlID)
     .then(data => {
-      setIndividual(data)
+      setPersonaje(data)
     })
     .catch(error => console.log(error))
   }, [urlID])
@@ -25,7 +31,7 @@ const Character = () => {
   return (
     <>
       <div className="container mx-auto">
-        <h1>Hola</h1>
+        <h1>Personaje - {personaje.name}</h1>
       </div>
     </>
   );
