@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['rickandmortyapi.com', 'st1.uvnimg.com'],
+    domains: ['rickandmortyapi.com',],
   },
 }
 

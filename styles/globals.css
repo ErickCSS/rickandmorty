@@ -17,6 +17,14 @@
    position: unset !important;
 }
 
+.custom-img-2{
+   width: 320px !important;
+   position: relative !important;
+   height: auto !important;
+   min-height: 200px !important;
+   max-width: 100% !important;
+   object-fit: cover;
+}
 @media(min-width: 1280px){
    .custom-img {
       width: 200px !important;
